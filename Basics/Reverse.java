@@ -6,7 +6,7 @@ class Reverse{
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter a number to be reversed");
         int num=sc.nextInt();
-        System.out.println(reversing(num));
+        System.out.println("Reverse of "+num+" is "+reversing(num));
     }
 
     public static int reversing(int n){
