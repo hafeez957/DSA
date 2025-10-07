@@ -1,4 +1,6 @@
+
 //Largest and smallest digits from a number
+
 import java.util.Scanner;
 
 class LargestAndSmallestDigit{
