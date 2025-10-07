@@ -1,9 +1,7 @@
 
 // Finding exponential value of a number
 
-
 import java.util.Scanner;
-
 
 class Exponential{
     public static void main(String[] args) {
