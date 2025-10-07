@@ -1,4 +1,6 @@
 
+//Binary Representation of a number
+
 import java.util.Scanner;
 
 class BinaryRepresentation{
