@@ -12,7 +12,6 @@ class NthPalindromeNumber{
         while(n>0){
             if(palindrome(n)){
                 slno++;
-            
                 if(slno==num){
                     System.out.println("The "+num+"th palindrome number is "+n);
                     break;
