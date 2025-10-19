@@ -9,9 +9,9 @@ class Sunny{
         System.out.println("Enter a number");
         int num=sc.nextInt();
         if(perfectSquare(num))
-            System.out.println("The "+num+" is a Perfect Square number");
+            System.out.println("The "+num+" is a sunny number");
         else
-            System.out.println("The "+num+" is not a Perfect Square number");
+            System.out.println("The "+num+" is not a sunny number");
     }
 
     public static boolean perfectSquare(int n){
