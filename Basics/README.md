@@ -76,7 +76,7 @@ This folder includes beginner-friendly programs covering number logic, mathemati
 | `Swapnig.java` | Swaps two numbers. |
 | `TwistedPrime.java` | Checks if a number is twisted prime. |
 | `Spy.java` | Determines if a number is spy number. |
-| `gigignore` | Starting DSA / setup file. |
+| `gitignore` | setup file. |
 
 ---
 
