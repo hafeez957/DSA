@@ -1,3 +1,6 @@
+
+// Finding frenquency or occurrence of elements in an Array
+
 class FrequencyOfElements{
     public static void main(String[] args) {
         int[] arr={1,2,5,3,4,3,2,8,7,0,8,7,1};
