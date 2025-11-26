@@ -1,4 +1,6 @@
 
+// Removing Dulplicate elements in an Array
+
 import java.util.Arrays;
 
 class DuplicateElements{
