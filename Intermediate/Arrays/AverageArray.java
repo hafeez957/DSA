@@ -1,3 +1,6 @@
+
+// Finding average of an Array
+
 class AverageArray{
     public static void main(String[] args) {
         int[] arr={1,2,342,4,5,6};
