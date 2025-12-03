@@ -1,3 +1,6 @@
+
+// Calculating how notes require for an amount
+
 class CurrencyCalculation{
     public static void main(String[] args) {
         int[] notes={500,200,100,50,20,10,5,2,1};
