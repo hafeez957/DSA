@@ -1,3 +1,6 @@
+
+// Counting Upper and lower , special and numeric characters in a String
+
 class CountingCharactersAndMore{
     public static void main(String[] args) {
         String s="AbCUFdE123#@!";
