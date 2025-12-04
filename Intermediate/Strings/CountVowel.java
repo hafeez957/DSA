@@ -1,3 +1,6 @@
+
+// counting vowels in a string
+
 class CountVowel{
     public static void main(String[] args) {
         String s="KSRTC drivers are next level".toLowerCase();
