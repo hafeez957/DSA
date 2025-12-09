@@ -35,6 +35,9 @@ class IntegerToWords {
             } else if (n <= 9999) {
                 res += ones[n / 1000] + " Thousand ";
                 n = n % 1000;
+            }else if(n<=99999){
+                res+=tens[n/10000]+" ";
+                n=n%10000;
             }
         }
         System.out.println(res);
