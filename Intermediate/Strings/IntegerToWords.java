@@ -13,7 +13,6 @@ class IntegerToWords {
 
         System.out.println("Enter any amount");
         int n = sc.nextInt();
-
         String res = "";
         while (n != 0) {
             if (n <= 9) {
@@ -36,6 +35,12 @@ class IntegerToWords {
                 res += ones[n / 1000] + " Thousand ";
                 n = n % 1000;
             }else if(n<=99999){
+                if(n>=10000&&n<=19999){
+                    // int temp=n/=1000;
+                    res+=teens[(n/1000)%10]+" Thousand";
+                    // n/=100;
+                    n%=1000;
+                }
                 res+=tens[n/10000]+" ";
                 n=n%10000;
             }
