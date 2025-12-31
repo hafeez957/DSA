@@ -66,5 +66,24 @@ public class SingleLinkedList {
             return data;
         }
     }
-
+    public void removeEle(int ele){
+        if(isEmpty()){
+            throw new EmptyLinkedListException("Linked list is empty");
+        }
+        if(head.data==ele){
+            removeFirst();
+        }
+        Node temp=head;
+        while(temp.next!=null && temp.next.next!=null){
+            if(temp.next.data==ele){
+                Node data=temp.next.next;
+                temp.next.next=null;
+                temp.next=data;
+            }
+            temp=temp.next;
+        }
+        if(temp.next!=null && temp.next.data==ele){
+            temp.next=null;
+        }
+    }
 }
