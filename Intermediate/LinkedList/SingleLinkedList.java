@@ -49,4 +49,22 @@ public class SingleLinkedList {
         }
     }
 
+    public int removeLast(){
+        if(isEmpty()){
+            throw new EmptyLinkedListException("List is empty");
+        }else if(head.next==null) {
+            int data = head.data;
+            clear();
+            return data;
+        }else{
+            Node temp=head.next;
+            while(temp.next.next!=null){
+                temp=temp.next;
+            }
+            int data=tail.data;
+            temp.next=null;
+            return data;
+        }
+    }
+
 }

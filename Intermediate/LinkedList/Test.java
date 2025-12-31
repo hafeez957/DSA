@@ -10,7 +10,7 @@ class Test{
         list.add(30);
         list.add(20);
         list.add(30);
-        System.out.println(list.removeFirst());
+        System.out.println(list.removeLast());
         System.out.println(list);
     }
 }
