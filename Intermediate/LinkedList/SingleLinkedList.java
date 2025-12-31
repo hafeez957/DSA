@@ -1,3 +1,5 @@
+import exceptions.EmptyLinkedListException;
+
 public class SingleLinkedList {
 	
 	Node head;
@@ -13,6 +15,9 @@ public class SingleLinkedList {
 			tail=node;
 		}
 	}
+    public void clear(){
+        head=tail=null;
+    }
 	public boolean isEmpty() {
 		return head==null;
 	}
@@ -28,4 +33,20 @@ public class SingleLinkedList {
 		}
 		return res+temp.data+"]";
 	}
+    public int removeFirst(){
+        if(isEmpty()){
+            throw new EmptyLinkedListException("List is empty");
+        }else if(head.next==null) {
+            int data = head.data;
+            clear();
+            return data;
+        }else{
+            int data=head.data;
+            Node temp=head.next;
+            head.next=null;
+            head=temp;
+            return data;
+        }
+    }
+
 }
