@@ -1,3 +1,5 @@
+package singlelinkedlist;
+
 class Test{
     public static void main(String[] args) {
         SingleLinkedList list =new SingleLinkedList();

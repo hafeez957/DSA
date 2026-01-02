@@ -1,13 +1,15 @@
+package singlelinkedlist;
+
 import exceptions.EmptyLinkedListException;
 
 public class SingleLinkedList {
-	
-	Node head;
-	Node tail;
-	
+
+	Node head=null;
+	Node tail=null;
+
 	public void add(int data) {
 		Node node=new Node(data);
-		if(head==null) {
+		if(isEmpty()) {
 			head=node;
 			tail=node;
 		}else {
@@ -66,24 +68,28 @@ public class SingleLinkedList {
             return data;
         }
     }
-    public void removeEle(int ele){
-        if(isEmpty()){
-            throw new EmptyLinkedListException("Linked list is empty");
+    public void removeEle(int data) {
+        if(isEmpty()) {
+            throw new EmptyLinkedListException("Empty");
         }
-        if(head.data==ele){
-            removeFirst();
-        }
-        Node temp=head;
-        while(temp.next!=null && temp.next.next!=null){
-            if(temp.next.data==ele){
-                Node data=temp.next.next;
-                temp.next.next=null;
-                temp.next=data;
+        else {
+            Node temp=head;
+            while(temp.next!=null) {
+                if(head.data==data) {
+                    removeFirst();
+                }
+                if(tail.data==data) {
+                    removeLast();
+                }
+                if(temp.next.data==data) {
+                    Node removenode=temp.next;
+                    Node next=removenode.next;
+                    removenode.next=null;
+                    temp.next=next;
+                }
+                temp=temp.next;
             }
-            temp=temp.next;
-        }
-        if(temp.next!=null && temp.next.data==ele){
-            temp.next=null;
+
         }
     }
 }
