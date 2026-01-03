@@ -5,7 +5,8 @@ public class Test {
         DoubleyLinkedList dll=new DoubleyLinkedList();
         dll.add(10);
         dll.addFirst(12);
-        System.out.println(dll.removeFirst());
+//        System.out.println(dll.removeFirst());
+        System.out.println(dll.removeLast());
         System.out.println(dll);
     }
 }

@@ -66,4 +66,19 @@ public class DoubleyLinkedList {
             return temp;
         }
     }
+
+    public int removeLast(){
+        if(isEmpty()){
+            throw new EmptyLinkedListException("List is empty");
+        }else if(head.next==null){
+            int temp=head.data;
+            clear();
+            return temp;
+        }else{
+            int temp=tail.data;
+            tail=tail.prev;
+            tail.next=null;
+            return temp;
+        }
+    }
 }
