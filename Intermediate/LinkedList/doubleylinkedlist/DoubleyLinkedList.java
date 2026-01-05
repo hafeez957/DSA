@@ -1,6 +1,7 @@
 package doubleylinkedlist;
 
 import exceptions.EmptyLinkedListException;
+import exceptions.InvalidIndexException;
 
 public class DoubleyLinkedList {
     Node head;
@@ -107,6 +108,28 @@ public class DoubleyLinkedList {
                 count--;
             }
             return true;
+        }
+    }
+
+    public void insert(int ind,int data){
+        if(ind<0||ind>size()){
+            throw new InvalidIndexException("Invalid index");
+        }else if(ind==0){
+            addFirst(data);
+        }else if(ind==size()){
+            addLast(data);
+        }else{
+            Node node =new Node(data);
+            Node temp=head;
+            while (ind>1){
+                temp=temp.next;
+                ind--;
+            }
+            Node next=temp.next;
+            temp.next=node;
+            node.prev=temp;
+            node.next=next;
+            next.prev=node;
         }
     }
 }
