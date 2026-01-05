@@ -7,96 +7,99 @@ public class DoubleyLinkedList {
     Node head;
     Node tail;
 
-    public boolean isEmpty(){
-        return head==null && tail==null;
+    public boolean isEmpty() {
+        return head == null && tail == null;
     }
 
-    public void add(int data){
-        Node node=new Node(data);
-        if(isEmpty()){
-            head=tail=node;
-        }else{
-            tail.next=node;
-            node.prev=tail;
-            tail=node;
+    public void add(int data) {
+        Node node = new Node(data);
+        if (isEmpty()) {
+            head = tail = node;
+        } else {
+            tail.next = node;
+            node.prev = tail;
+            tail = node;
         }
     }
 
-    public String toString(){
-        if(isEmpty()){
+    public String toString() {
+        if (isEmpty()) {
             return "[]";
         }
-        String res="[";
-        Node temp=head;
-        while(temp.next!=null){
-            res=res+temp.data+",";
-            temp=temp.next;
+        String res = "[";
+        Node temp = head;
+        while (temp.next != null) {
+            res = res + temp.data + ",";
+            temp = temp.next;
         }
-        return res+temp.data+"]";
+        return res + temp.data + "]";
     }
 
-    public void addFirst(int data){
-        if(isEmpty()){
+    public void addFirst(int data) {
+        if (isEmpty()) {
             add(data);
-        }else{
-            Node node=new Node(data);
-            head.prev=node;
-            node.next=head;
-            head=node;
+        } else {
+            Node node = new Node(data);
+            head.prev = node;
+            node.next = head;
+            head = node;
         }
     }
 
-    public void addLast(int data){
+    public void addLast(int data) {
         add(data);
     }
 
-    public void clear(){
-        head=tail=null;
+    public void clear() {
+        head = tail = null;
     }
-    public int removeFirst(){
-        if(isEmpty()){
+
+    public int removeFirst() {
+        if (isEmpty()) {
             throw new EmptyLinkedListException("list is empty");
-        }else if(head.next==null){
-            int temp=head.data;
+        } else if (head.next == null) {
+            int temp = head.data;
             clear();
             return temp;
-        }else {
-            int temp=head.data;
+        } else {
+            int temp = head.data;
             head = head.next;
             head.prev = null;
             return temp;
         }
     }
 
-    public int removeLast(){
-        if(isEmpty()){
+    public int removeLast() {
+        if (isEmpty()) {
             throw new EmptyLinkedListException("List is empty");
-        }else if(head.next==null){
-            int temp=head.data;
+        } else if (head.next == null) {
+            int temp = head.data;
             clear();
             return temp;
-        }else{
-            int temp=tail.data;
-            tail=tail.prev;
-            tail.next=null;
+        } else {
+            int temp = tail.data;
+            tail = tail.prev;
+            tail.next = null;
             return temp;
         }
     }
-    public int size(){
-        Node temp=head;
-        int count=0;
-        while(temp!=null){
+
+    public int size() {
+        Node temp = head;
+        int count = 0;
+        while (temp != null) {
             count++;
-            temp=temp.next;
+            temp = temp.next;
         }
         return count;
     }
-    public boolean isPalindromic(){
-        if(isEmpty()){
+
+    public boolean isPalindromic() {
+        if (isEmpty()) {
             throw new EmptyLinkedListException("list is empty");
-        }else if(head.next==null){
+        } else if (head.next == null) {
             return true;
-        }else {
+        } else {
             Node temp = head;
             int count = size();
             while (count > 0) {
@@ -111,25 +114,50 @@ public class DoubleyLinkedList {
         }
     }
 
-    public void insert(int ind,int data){
-        if(ind<0||ind>size()){
+    public void insert(int ind, int data) {
+        if (ind < 0 || ind > size()) {
             throw new InvalidIndexException("Invalid index");
-        }else if(ind==0){
+        } else if (ind == 0) {
             addFirst(data);
-        }else if(ind==size()){
+        } else if (ind == size()) {
             addLast(data);
-        }else{
-            Node node =new Node(data);
-            Node temp=head;
-            while (ind>1){
-                temp=temp.next;
+        } else {
+            Node node = new Node(data);
+            Node temp = head;
+            while (ind > 1) {
+                temp = temp.next;
                 ind--;
             }
-            Node next=temp.next;
-            temp.next=node;
-            node.prev=temp;
-            node.next=next;
-            next.prev=node;
+            Node next = temp.next;
+            temp.next = node;
+            node.prev = temp;
+            node.next = next;
+            next.prev = node;
         }
     }
+
+    public int remove(int ind){
+        if (ind < 0 || ind >=size()) {
+            throw new InvalidIndexException("Invalid index");
+        } else if (ind == 0) {
+            return removeFirst();
+        } else if (ind == size()-1) {
+            return removeLast();
+        } else {
+            Node temp = head;
+            while (ind > 0) {
+                temp = temp.next;
+                ind--;
+            }
+            int data=temp.data;
+            Node prev = temp.prev;
+            Node next = temp.next;
+            prev.next = next;
+            next.prev = prev;
+            return data;
+        }
+
+    }
 }
+
+ 
