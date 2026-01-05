@@ -81,4 +81,32 @@ public class DoubleyLinkedList {
             return temp;
         }
     }
+    public int size(){
+        Node temp=head;
+        int count=0;
+        while(temp!=null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
+    }
+    public boolean isPalindromic(){
+        if(isEmpty()){
+            throw new EmptyLinkedListException("list is empty");
+        }else if(head.next==null){
+            return true;
+        }else {
+            Node temp = head;
+            int count = size();
+            while (count > 0) {
+                if (temp.data != tail.data) {
+                    return false;
+                }
+                temp = temp.next;
+                tail = tail.prev;
+                count--;
+            }
+            return true;
+        }
+    }
 }
