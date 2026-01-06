@@ -1,11 +1,11 @@
 package doubleylinkedlist;
 
-public class Node {
+public class Node<T> {
     Node prev;
-    int data;
+    T data;
     Node next;
 
-    public Node(int data){
+    public Node(T data){
         this.data=data;
     }
 }

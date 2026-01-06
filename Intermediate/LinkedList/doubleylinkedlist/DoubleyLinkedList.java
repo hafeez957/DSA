@@ -3,7 +3,7 @@ package doubleylinkedlist;
 import exceptions.EmptyLinkedListException;
 import exceptions.InvalidIndexException;
 
-public class DoubleyLinkedList {
+public class DoubleyLinkedList<T> {
     Node head;
     Node tail;
 
@@ -11,8 +11,8 @@ public class DoubleyLinkedList {
         return head == null && tail == null;
     }
 
-    public void add(int data) {
-        Node node = new Node(data);
+    public void add(T data) {
+        Node<T> node = new Node(data);
         if (isEmpty()) {
             head = tail = node;
         } else {
@@ -35,18 +35,18 @@ public class DoubleyLinkedList {
         return res + temp.data + "]";
     }
 
-    public void addFirst(int data) {
+    public void addFirst(T data) {
         if (isEmpty()) {
             add(data);
         } else {
-            Node node = new Node(data);
+            Node<T> node = new Node(data);
             head.prev = node;
             node.next = head;
             head = node;
         }
     }
 
-    public void addLast(int data) {
+    public void addLast(T data) {
         add(data);
     }
 
@@ -54,30 +54,30 @@ public class DoubleyLinkedList {
         head = tail = null;
     }
 
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new EmptyLinkedListException("list is empty");
         } else if (head.next == null) {
-            int temp = head.data;
+            T temp = (T) head.data;
             clear();
             return temp;
         } else {
-            int temp = head.data;
+            T temp = (T) head.data;
             head = head.next;
             head.prev = null;
             return temp;
         }
     }
 
-    public int removeLast() {
+    public T removeLast() {
         if (isEmpty()) {
             throw new EmptyLinkedListException("List is empty");
         } else if (head.next == null) {
-            int temp = head.data;
+            T temp = (T) head.data;
             clear();
             return temp;
         } else {
-            int temp = tail.data;
+            T temp = (T) tail.data;
             tail = tail.prev;
             tail.next = null;
             return temp;
@@ -114,7 +114,7 @@ public class DoubleyLinkedList {
         }
     }
 
-    public void insert(int ind, int data) {
+    public void insert(int ind, T data) {
         if (ind < 0 || ind > size()) {
             throw new InvalidIndexException("Invalid index");
         } else if (ind == 0) {
@@ -136,7 +136,7 @@ public class DoubleyLinkedList {
         }
     }
 
-    public int remove(int ind){
+    public T remove(int ind){
         if (ind < 0 || ind >=size()) {
             throw new InvalidIndexException("Invalid index");
         } else if (ind == 0) {
@@ -149,7 +149,7 @@ public class DoubleyLinkedList {
                 temp = temp.next;
                 ind--;
             }
-            int data=temp.data;
+            T data= (T) temp.data;
             Node prev = temp.prev;
             Node next = temp.next;
             prev.next = next;
