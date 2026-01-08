@@ -1,8 +1,13 @@
 package doubleylinkedlist;
 
+import java.util.LinkedList;
+
 public class Test {
     public static void main(String[] args) {
         DoubleyLinkedList dll=new DoubleyLinkedList();
+        LinkedList l=new LinkedList();
+
+
         dll.add(10);
         dll.add(12);
         dll.add(10.45);
