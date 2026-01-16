@@ -92,4 +92,27 @@ public class SingleLinkedList {
 
         }
     }
+
+    public int size(){
+        Node temp=head;
+        int c=0;
+        while(temp!=null){
+            c++;
+            temp=temp.next;
+        }
+        return c;
+    }
+    public int middle(){
+        Node fast=head;
+        Node slow=head;
+        while(fast.next!=null && fast.next.next!=null){
+            fast=fast.next.next;
+            slow=slow.next;
+        }
+        if(size()%2==0){
+            return slow.next.data;
+        }else{
+            return slow.data;
+        }
+    }
 }
